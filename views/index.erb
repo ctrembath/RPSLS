@@ -73,6 +73,8 @@
     </div>
    
     <br>
+    
+    <br>
     <br>
     <br>
 
@@ -100,6 +102,26 @@
     <script src='lib/mustache.min.js'></script>
     <script>
 
+      navigator.getUserMedia = (navigator.getUserMedia || 
+                          navigator.webkitGetUserMedia || 
+                          navigator.mozGetUserMedia || 
+                          navigator.msGetUserMedia);
+   if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+         {
+            video:true,
+            audio:false
+         },        
+         function(stream) { /* do something */ },
+         function(error) { /* do something */ }
+      );
+   }
+   else {
+      alert('Sorry, the browser you are using doesn\'t support getUserMedia');
+      return;
+    }
+ 
+
       $(document).ready(function() {
         var remove = function(){
           $(this).remove();
@@ -114,6 +136,7 @@
         var game = new Game(clare, computer)
 
         $('.choices img').on('click',function(){
+
           clare.picks($(this).data('pick'));
           computer.picks();
           var rendered = Mustache.render($('#list-item-template').html(),{message: game.winningMessage()});
