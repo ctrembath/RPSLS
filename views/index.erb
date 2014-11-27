@@ -4,14 +4,15 @@
     <title>aloe on aloe.</title>
        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
   </head>
-    <br>
     <style>
     
     body {
+      position: relative;
       background-image: url(images/water.gif);
       font-family: Impact, Charcoal, sans-serif;
-      font color: blue
-      margin: 15px 0 0 30px;
+      font color: blue;
+      margin: 0;
+      padding: 0;
     }
 
     .choices img {
@@ -33,7 +34,10 @@
 
     .header{
       background-image: url("images/aloheader.png");
-      max-width: 670px;
+      background-position: center;
+      position: absolute;
+      top: 10px;
+      width: 100%;
       height: 100px;
       background-repeat: no-repeat;
       background-size: contain;
@@ -47,8 +51,16 @@
       font color: #00FF7F;
     }
 
+    .interface {
+      top: 250px;
+      position: absolute;
+  }
+
     #results {
       list-style: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     #results li {
@@ -63,37 +75,47 @@
       display:none;
 
     }
-        #player {
+  
+    #game-board {
       width: 100%;
-      height: 100%;
+      position: relative;
+    }
+
+
+     #player {
+      margin: 0;
+      padding: 0;
+      width: 100%;
       opacity: 0.5;
     }
 
 
     </style>
   </head>
-  <center>
-  <body>
-     <div class= "header">
-    </div>
   
-   <video id="player" autoplay="true"></video>
+  <body>
+    <center>
 
-    <br>
-    
-    <br>
-    <br>
-    <br>
+    <div id="game-board">
+      <video id="player" autoplay="true"></video>
+        <div class= "header">
+      </div>
+        <div class='interface'>
+      <div class='choices'>
+       <img src="images/aloe1.png" data-pick='rock'>
+       <img src="images/aloe2.png" data-pick='paper'>
+       <img src="images/alotones.png" data-pick='scissors'>
+       <img src="images/aloe 4.png" data-pick='lizard'>
+       <img src="images/aloe3.png" data-pick='spock'>
+      </div>
 
-    <div class='choices'>
-      <img src="images/aloe1.jpg" data-pick='rock'>
-      <img src="images/aloe2.jpg" data-pick='paper'>
-      <img src="images/aloe3.jpg" data-pick='scissors'>
-      <img src="images/aloe 4.jpg" data-pick='lizard'>
-      <img src="images/alotones.jpg" data-pick='spock'>
+         <ul id="results">
+        </ul>
+      </div>
+
     </div>
-    <ul id="results">
-    </ul>
+
+    </center>
 
      <audio loop="loop" autoplay="autoplay" hidden="true">
       <source src="audio/fresh.mp3" type="audio/mp3">
