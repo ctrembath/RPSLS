@@ -3,6 +3,7 @@
   <head>
     <title>aloe on aloe.</title>
        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
+       <link rel="stylesheet" href="css/animate.min.css">
   </head>
     <style>
     
@@ -36,12 +37,18 @@
       background-image: url("images/aloheader.png");
       background-position: center;
       position: absolute;
-      opacity: 0.8;
+      opacity: 0.75;
       top: 10px;
       width: 100%;
       height: 100px;
       background-repeat: no-repeat;
       background-size: contain;
+
+    }
+
+    #aloe {
+      float:center;
+      top: 100px;
 
     }
 
@@ -100,9 +107,15 @@
     <div id="game-board">
       <video id="player" autoplay="true"></video>
         <div class= "header">
-      </div>
+
+  
+    </div>
         <div class='interface'>
-      <div class='choices'>
+
+      <video id= "aloe" width="320" height="280" autoplay="true" loop>
+        <source src="video/alo.mp4" type="video/mp4" />
+    </video>
+      <div class='choices','bounce'>
        <img src="images/aloe1.png" data-pick='rock'>
        <img src="images/aloe2.png" data-pick='paper'>
        <img src="images/alotones.png" data-pick='scissors'>
@@ -117,6 +130,7 @@
     </div>
 
     </center>
+
 
      <audio loop="loop" autoplay="autoplay" hidden="true">
       <source src="audio/fresh.mp3" type="audio/mp3">
@@ -163,6 +177,7 @@
           var data = {message: game.winningMessage()};
           return Mustache.render(html,data);
         }
+       $('.header').addClass('animated bounce');
         var clare = new Player('you');
         var computer = new Computer('DR alo');
         var game = new Game(clare, computer)
@@ -175,6 +190,7 @@
           $(render(game)).prependTo('#results').fadeIn(300);
           $('li:nth-child(5)').fadeOut(300,remove)
            });
+
 
         });
 
