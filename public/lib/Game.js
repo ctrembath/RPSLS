@@ -4,11 +4,11 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = {
-  rock:     { scissors: 'liquifys', lizard: 'slushes' },
+  rock:     { scissors: 'liquified', lizard: 'slushed' },
   paper:    { rock: 'melts', spock: 'oozes over' },
-  scissors: { paper: 'pulps', lizard: 'dilutes' },
-  lizard:   { spock: 'poisons', paper: 'bubbles' },
-  spock:    { rock: 'vaporises', scissors: 'fluidifies' }
+  scissors: { paper: 'pulped', lizard: 'dilutes' },
+  lizard:   { spock: 'poison', paper: 'bubble' },
+  spock:    { rock: 'vaporise', scissors: 'fluidify' }
 }
 
 Game.prototype.winner = function() {
